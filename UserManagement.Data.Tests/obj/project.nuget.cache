@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ypScjgA4ung=",
+  "dgSpecHash": "pYXVBw0xLSY=",
   "success": true,
-  "projectFilePath": "/Users/muiz/Documents/GitHub/TechTest/UserManagement.Data.Tests/UserManagement.Data.Tests.csproj",
+  "projectFilePath": "/Users/muiz/Documents/GitHub/tech-test/UserManagement.Data.Tests/UserManagement.Data.Tests.csproj",
   "expectedPackageFiles": [
     "/Users/muiz/.nuget/packages/castle.core/5.1.1/castle.core.5.1.1.nupkg.sha512",
     "/Users/muiz/.nuget/packages/coverlet.collector/6.0.4/coverlet.collector.6.0.4.nupkg.sha512",

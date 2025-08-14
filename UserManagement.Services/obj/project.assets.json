@@ -596,11 +596,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/muiz/Documents/GitHub/TechTest/UserManagement.Services/UserManagement.Services.csproj",
+      "projectUniqueName": "/Users/muiz/Documents/GitHub/tech-test/UserManagement.Services/UserManagement.Services.csproj",
       "projectName": "UserManagement.Services",
-      "projectPath": "/Users/muiz/Documents/GitHub/TechTest/UserManagement.Services/UserManagement.Services.csproj",
+      "projectPath": "/Users/muiz/Documents/GitHub/tech-test/UserManagement.Services/UserManagement.Services.csproj",
       "packagesPath": "/Users/muiz/.nuget/packages/",
-      "outputPath": "/Users/muiz/Documents/GitHub/TechTest/UserManagement.Services/obj/",
+      "outputPath": "/Users/muiz/Documents/GitHub/tech-test/UserManagement.Services/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/muiz/.nuget/NuGet/NuGet.Config"
@@ -616,8 +616,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "/Users/muiz/Documents/GitHub/TechTest/UserManagement.Data/UserManagement.Data.csproj": {
-              "projectPath": "/Users/muiz/Documents/GitHub/TechTest/UserManagement.Data/UserManagement.Data.csproj"
+            "/Users/muiz/Documents/GitHub/tech-test/UserManagement.Data/UserManagement.Data.csproj": {
+              "projectPath": "/Users/muiz/Documents/GitHub/tech-test/UserManagement.Data/UserManagement.Data.csproj"
             }
           }
         }

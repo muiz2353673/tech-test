@@ -11,3 +11,16 @@
 /Users/muiz/Documents/GitHub/TechTest/UserManagement.Data/obj/Debug/net9.0/refint/UserManagement.Data.dll
 /Users/muiz/Documents/GitHub/TechTest/UserManagement.Data/obj/Debug/net9.0/UserManagement.Data.pdb
 /Users/muiz/Documents/GitHub/TechTest/UserManagement.Data/obj/Debug/net9.0/ref/UserManagement.Data.dll
+/Users/muiz/Documents/GitHub/tech-test/UserManagement.Data/bin/Debug/net9.0/UserManagement.Data.deps.json
+/Users/muiz/Documents/GitHub/tech-test/UserManagement.Data/bin/Debug/net9.0/UserManagement.Data.dll
+/Users/muiz/Documents/GitHub/tech-test/UserManagement.Data/bin/Debug/net9.0/UserManagement.Data.pdb
+/Users/muiz/Documents/GitHub/tech-test/UserManagement.Data/obj/Debug/net9.0/UserManagement.Data.csproj.AssemblyReference.cache
+/Users/muiz/Documents/GitHub/tech-test/UserManagement.Data/obj/Debug/net9.0/UserManagement.Data.GeneratedMSBuildEditorConfig.editorconfig
+/Users/muiz/Documents/GitHub/tech-test/UserManagement.Data/obj/Debug/net9.0/UserManagement.Data.AssemblyInfoInputs.cache
+/Users/muiz/Documents/GitHub/tech-test/UserManagement.Data/obj/Debug/net9.0/UserManagement.Data.AssemblyInfo.cs
+/Users/muiz/Documents/GitHub/tech-test/UserManagement.Data/obj/Debug/net9.0/UserManagement.Data.csproj.CoreCompileInputs.cache
+/Users/muiz/Documents/GitHub/tech-test/UserManagement.Data/obj/Debug/net9.0/UserManagement.Data.sourcelink.json
+/Users/muiz/Documents/GitHub/tech-test/UserManagement.Data/obj/Debug/net9.0/UserManagement.Data.dll
+/Users/muiz/Documents/GitHub/tech-test/UserManagement.Data/obj/Debug/net9.0/refint/UserManagement.Data.dll
+/Users/muiz/Documents/GitHub/tech-test/UserManagement.Data/obj/Debug/net9.0/UserManagement.Data.pdb
+/Users/muiz/Documents/GitHub/tech-test/UserManagement.Data/obj/Debug/net9.0/ref/UserManagement.Data.dll

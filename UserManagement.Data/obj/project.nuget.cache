@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7eY6bnWssB4=",
+  "dgSpecHash": "fEG2sz4z9wQ=",
   "success": true,
-  "projectFilePath": "/Users/muiz/Documents/GitHub/TechTest/UserManagement.Data/UserManagement.Data.csproj",
+  "projectFilePath": "/Users/muiz/Documents/GitHub/tech-test/UserManagement.Data/UserManagement.Data.csproj",
   "expectedPackageFiles": [
     "/Users/muiz/.nuget/packages/microsoft.entityframeworkcore/9.0.6/microsoft.entityframeworkcore.9.0.6.nupkg.sha512",
     "/Users/muiz/.nuget/packages/microsoft.entityframeworkcore.abstractions/9.0.6/microsoft.entityframeworkcore.abstractions.9.0.6.nupkg.sha512",
