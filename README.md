@@ -115,8 +115,6 @@ git init
 git add .
 git commit -m "Initial solution with CRUD, filters, DOB, logging, and async support"
 git branch -M main
-git remote add origin https://github.com/<your-username>/<your-repo>.git
+git remote add origin https://github.com/muiz2353673/tech-test.git
 git push -u origin main
 ```
-
-Replace `muiz2353673` and `<your-repo>` with your GitHub details.
