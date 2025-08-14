@@ -1,0 +1,37 @@
+# Build artifacts
+**/bin/
+**/obj/
+
+# Test artifacts
+TestResults/
+
+# IDE
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+
+# OS/editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Rider/JetBrains
+*.DotSettings.user
+
+# ASP.NET Core publish output
+**/publish/
+
+# NuGet
+*.nupkg
+.nuget/
+# Optional: lock files
+project.lock.json
+# paket
+.paket/
+paket-files/
