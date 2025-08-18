@@ -35,3 +35,6 @@ project.lock.json
 # paket
 .paket/
 paket-files/
+
+# Nested repo accidentally added
+tech-test/
