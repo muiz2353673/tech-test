@@ -1,0 +1,53 @@
+@* File: Index.cshtml — logs list *@
+@model UserManagement.Web.Models.Logs.LogListViewModel
+
+@* This page lists all log entries with simple next/previous paging *@
+
+<h2>Logs</h2>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>User Id</th>
+                <th>Action</th>
+                <th>Description</th>
+                <th>Created (UTC)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Items)
+            {
+                <tr>
+                    <td><a asp-controller="Logs" asp-action="Details" asp-route-id="@item.Id">@item.Id</a></td>
+                    <td>
+                        @if (item.UserId.HasValue)
+                        {
+                            <a asp-controller="Logs" asp-action="ForUser" asp-route-userId="@item.UserId">@item.UserId</a>
+                        }
+                        else
+                        {
+                            <span>-</span>
+                        }
+                    </td>
+                    <td>@item.Action</td>
+                    <td>@item.Description</td>
+                    <td>@item.CreatedAtUtc.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="d-flex justify-content-between">
+    <div>
+        Page @Model.Page
+    </div>
+    <div class="btn-group" role="group">
+        <a class="btn btn-outline-secondary @(Model.Page <= 1 ? "disabled" : null)" asp-route-page="@(Model.Page - 1)" asp-route-pageSize="@Model.PageSize">Previous</a>
+        <a class="btn btn-outline-secondary" asp-route-page="@(Model.Page + 1)" asp-route-pageSize="@Model.PageSize">Next</a>
+    </div>
+</div>
+
+
