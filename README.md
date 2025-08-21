@@ -1,143 +1,79 @@
 # User Management Technical Exercise
 
-A simple ASP.NET Core MVC application for managing users (CRUD) and recording actions as log entries. The app uses EF Core InMemory for frictionless local runs and unit tests.
+The exercise is an ASP.NET Core web application backed by Entity Framework Core, which faciliates management of some fictional users.
+We recommend that you use [Visual Studio (Community Edition)](https://visualstudio.microsoft.com/downloads) or [Visual Studio Code](https://code.visualstudio.com/Download) to run and modify the application.
 
-## Requirements
+**The application uses an in-memory database, so changes will not be persisted between executions.**
 
-- .NET SDK 9.0 (recommended) — `dotnet --version`
-- macOS/Windows/Linux
-- IDE: Visual Studio or VS Code (recommended)
+## The Exercise (Standard Only)
 
-## Quick Start
+This solution focuses solely on the Standard tasks.
 
-```bash
-# Restore, build, test
-dotnet restore
-dotnet build
-dotnet test
+### 1. Filters Section (Standard)
 
-# Run web app on a fixed port (avoids dev-cert prompts)
-dotnet run --project UserManagement.Web/UserManagement.Web.csproj --urls http://localhost:5010
-# Then open http://localhost:5010/
+The users page contains 3 buttons below the user listing - **Show All**, **Active Only** and **Non Active**. Show All has already been implemented. Implement the remaining buttons using the following logic:
+
+-   Active Only – This should show only users where their `IsActive` property is set to `true`
+-   Non Active – This should show only users where their `IsActive` property is set to `false`
+
+### 2. User Model Properties (Standard)
+
+Add a new property to the `User` class in the system called `DateOfBirth` which is to be used and displayed in relevant sections of the app.
+
+### 3. Actions Section (Standard)
+
+Create the code and UI flows for the following actions
+
+-   **Add** – A screen that allows you to create a new user and return to the list
+-   **View** - A screen that displays the information about a user
+-   **Edit** – A screen that allows you to edit a selected user from the list
+-   **Delete** – A screen that allows you to delete a selected user from the list
+
+Each of these screens should contain appropriate data validation, which is communicated to the end user.
+
+Note: Advanced, Expert, and Platform tasks and related code have been removed.
+
+## Additional Notes
+
+-   Please feel free to change or refactor any code that has been supplied within the solution and think about clean maintainable code and architecture when extending the project.
+-   If any additional packages, tools or setup are required to run your completed version, please document these thoroughly.
+
+## What Is Implemented (Standard)
+
+-   Filters: Active/Inactive filters on the Users list
+-   User model: `DateOfBirth` displayed on list and forms
+-   Actions: Add/View/Edit/Delete with validation and success messages
+
+## How It Works (Brief)
+
+-   Data layer uses EF Core InMemory so the app runs without setup. `DataContext` seeds users.
+-   `UserService` provides user operations.
+-   `UsersController` renders list and CRUD pages.
+-   Views are Razor with Bootstrap; client-side validation via jQuery validation.
+
+## Run
+
+```
+cd UserManagement.Web
+dotnet run
 ```
 
-Tips:
+-   Users: https://localhost:7084/users (or http://localhost:5084/users)
+ 
 
-- Use `dotnet watch run` during development for hot-reload.
-- To change the port: `--urls http://localhost:5050` (or add `https://localhost:7050` if using a dev cert).
+If you see a port in use error, close previous instances or change `applicationUrl` in `Properties/launchSettings.json`.
 
-## Project Structure
+## GitHub
 
-- `UserManagement.Data`
-  - Entities: `User` (Id, Forename, Surname, Email, IsActive, DateOfBirth), `LogEntry` (Id, UserId?, Action, Description?, CreatedAtUtc)
-  - `DataContext`: EF Core InMemory DbContext, seeds 11 demo users; simple CRUD helpers via `IDataContext`
-  - DI: `AddDataAccess()` registers `IDataContext` as scoped `DataContext`
-- `UserManagement.Services`
-  - Interfaces: `IUserService`, `ILogService` (sync + async APIs)
-  - Implementations: `UserService`, `LogService` using the shared `IDataContext`
-  - DI: `AddDomainServices()` registers services as scoped
-- `UserManagement.Web`
-  - `Program.cs`: adds data access, domain services, MVC; middleware (HSTS, HTTPS redirection, static files, routing, authorization)
-  - Controllers: `HomeController`, `UsersController` (CRUD + filters), `LogsController` (listing, details, per-user)
-  - Views: Razor pages for Users and Logs; simple Bootstrap UI
-- Tests
-  - `UserManagement.Data.Tests`, `UserManagement.Services.Tests`, `UserManagement.Web.Tests` (xUnit + FluentAssertions)
+To publish this repo under your GitHub account:
 
-## Features Implemented
-
-- Filters: Active / Inactive on the Users list
-- User model: Added `DateOfBirth` and displayed across list/forms
-- Actions: Add / View / Edit / Delete with validation and success messages
-- Logging: `LogEntry` entity and `ILogService/LogService`; Logs pages (`/logs`, `/logs/{id}`, `/logs/user/{userId}`)
-- Async support: async methods across data layer and services; controllers updated to use async where relevant
-
-## Endpoints
-
-- `GET /` — Home
-- `GET /users` — List all users
-- `GET /users/active` — Active users
-- `GET /users/inactive` — Inactive users
-- `GET /users/add` — Create form
-- `POST /users/add` — Create
-- `GET /users/{id}/view` — Details
-- `GET /users/{id}/edit` — Edit form
-- `POST /users/{id}/edit` — Update
-- `GET /users/{id}/delete` — Delete confirmation
-- `POST /users/{id}/delete` — Delete
-- `GET /logs` — Logs list (supports `page`, `pageSize`)
-- `GET /logs/{id}` — Log details
-- `GET /logs/user/{userId}` — Logs for a specific user
-
-## Testing
-
-```bash
-dotnet test
 ```
-
-- All tests currently pass.
-- You may see a FluentAssertions license reminder during test runs.
-
-## Exercise Brief
-
-Complete as many tasks as you like. They are grouped by difficulty:
-
-- **Standard**
-  - Filters: Implement Active Only (`IsActive == true`) and Non Active (`IsActive == false`)
-  - User Model: Add `DateOfBirth` and show it throughout the app
-  - Actions: Add/View/Edit/Delete with validation
-- **Advanced**
-  - Data Logging: Capture log information for primary actions
-  - View screen: Show recent actions for a user
-  - Logs page: List all logs, details page, and consider UX for large volumes
-- **Expert**
-  - Significant architectural improvement (examples):
-    - Client-side UI (e.g., Blazor or your preferred framework) backed by an API
-    - Full async data access
-    - Authentication and login
-    - Bundling of static assets
-    - Real database with migrations
-- **Platform**
-  - CI/CD pipelines, cloud deployment, IaC, message bus/worker for long-running tasks
-
-## Design Decisions & Trade-offs
-
-- EF Core InMemory for simplicity and speed (not persistent; resets each run)
-- Scoped lifetimes for DbContext/services to align with web request scope
-- Both sync and async methods to ease future switch to a real database provider
-- HTTPS redirection and HSTS enabled by default
-
-## Limitations / Next Steps
-
-- No persistence/migrations; data resets on restart
-- Minimal validation and error handling; no authentication/authorization
-- Logging stored in the same in-memory store
-
-Suggested improvements:
-
-- Replace InMemory with SQL provider + EF migrations
-- Add server-side paging/sorting/search for users
-- Introduce DTOs and mapping (e.g., AutoMapper)
-- Add authn/authz and roles
-- Expand test coverage, add API endpoints if needed
-
-## Assessment Docs
-
-- `ASSESSMENT_SUMMARY.txt` — high-level project overview
-- `ASSESSMENT_QA.txt` — common assessment questions and answers
-
-## Troubleshooting
-
-- Port in use: stop previous instances or change `--urls`
-- HTTPS locally: install dev certificate and include an `https://` URL in `--urls`
-- Build artifacts tracked: consider adding `bin/` and `obj/` to `.gitignore` and untracking them
-
-## Publishing to GitHub (optional)
-
-```bash
 git init
 git add .
-git commit -m "Initial solution"
+git commit -m "Initial solution with CRUD, filters, DOB, logging, and async support"
 git branch -M main
-git remote add origin https://github.com/muiz2353673/tech-test.git
+git remote add origin https://github.com/<your-username>/<your-repo>.git
 git push -u origin main
 ```
+
+Replace `muiz2353673` and `<your-repo>` with your GitHub details.

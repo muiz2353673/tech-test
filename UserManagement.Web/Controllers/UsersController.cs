@@ -14,12 +14,10 @@ namespace UserManagement.WebMS.Controllers;
 public class UsersController : Controller
 {
     private readonly IUserService _userService;
-    private readonly ILogService _logService;
-    public UsersController(IUserService userService, ILogService logService)
+    public UsersController(IUserService userService)
     {
         // Save services into fields so we can use them in actions
         _userService = userService;
-        _logService = logService;
     }
 
     [HttpGet]
@@ -120,7 +118,6 @@ public class UsersController : Controller
         };
 
         await _userService.AddAsync(user);
-        await _logService.LogAsync("Created", $"User created: {user.Forename} {user.Surname}", user.Id);
         
         TempData["SuccessMessage"] = "User created successfully.";
         return RedirectToAction("List");
@@ -136,8 +133,6 @@ public class UsersController : Controller
         {
             return NotFound();
         }
-
-        await _logService.LogAsync("Viewed", $"Viewed user {user.Forename} {user.Surname}", user.Id);
 
         var model = new UserDetailViewModel
         {
@@ -199,7 +194,6 @@ public class UsersController : Controller
         user.DateOfBirth = model.DateOfBirth;
 
         await _userService.UpdateAsync(user);
-        await _logService.LogAsync("Updated", $"User updated: {user.Forename} {user.Surname}", user.Id);
         
         TempData["SuccessMessage"] = "User updated successfully.";
         return RedirectToAction("List");
@@ -241,7 +235,6 @@ public class UsersController : Controller
         }
 
         await _userService.DeleteAsync(id);
-        await _logService.LogAsync("Deleted", $"User deleted: {user.Forename} {user.Surname}", user.Id);
         
         TempData["SuccessMessage"] = "User deleted successfully.";
         return RedirectToAction("List");

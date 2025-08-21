@@ -37,12 +37,11 @@ public class DataContext : DbContext, IDataContext
             new User { Id = 11, Forename = "Robin", Surname = "Feld", Email = "rfeld@example.com", IsActive = true },
         });
 
-        // Ensure EF knows about LogEntry too
-        model.Entity<LogEntry>();
+        // No logs entity when only Standard tasks are required
     }
 
     public DbSet<User>? Users { get; set; }
-    public DbSet<LogEntry>? LogEntries { get; set; }
+    // Logs removed for Standard-only scope
 
     // Return a query for any entity type
     public IQueryable<TEntity> GetAll<TEntity>() where TEntity : class
